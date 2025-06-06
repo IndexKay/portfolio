@@ -1,0 +1,414 @@
+:root {
+  --background-1: #0D1117;
+  --background-2: #161B21;
+
+  --primary: #58A6FF;
+  --secondary: #FFFFFF;
+  --grey: #A9A9A9;
+}
+
+
+main {
+  background-color: var(--background-1);
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+section {
+  width: 100vw;
+  height: 100vh;
+}
+
+
+nav {
+  background-color: var(--background-2);
+  width: 100vw;
+  height: auto;
+  padding: 1.125rem 7.1875rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+nav img{
+  height: 2rem;
+  width: auto;
+}
+nav > .links{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3.125rem;
+}
+nav > .links a{
+  color: var(--grey);
+  font-size: 1rem;
+}
+nav > .socials{
+  display: flex;
+  align-items: center;
+  gap: 0.9375rem;
+}
+nav > .socials .icon{
+  font-size: 1.4rem;
+  color: var(--grey);
+}
+
+
+#landing-section {
+  background-color: var(--background-1);
+  display: flex;
+  flex-wrap: wrap;
+  padding: 8rem 13.2rem;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-self: stretch;
+  gap: 25rem;
+
+  background-image: radial-gradient(#212830 1px, transparent 0);
+  background-size: 30px 30px;
+}
+#landing-section .content{
+  display: flex;
+  max-width: 35rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+#landing-section .content .tag{
+  border-radius: 1.625rem;
+  background: rgba(88, 166, 255, 0.30);
+
+  display: flex;
+  padding: 0.5rem 0.875rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  color: var(--primary);
+}
+#landing-section .content .title{
+  color: var(--secondary);
+  font-size: 4rem;
+  font-weight: 700;
+}
+#landing-section .content .bio{
+  color: var(--grey);
+  font-size: 1.2rem;
+}
+#landing-section .content .btn-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.875rem;
+}
+#landing-section .content .btn1{
+  color: var(--secondary);
+
+  display: flex;
+  padding: 1rem 1.45rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 0.625rem;
+  background: var(--primary);
+  font-size: 1.1rem
+}
+#landing-section .content .btn2{
+  color: var(--primary);
+
+  display: flex;
+  padding: 1rem 1.45rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 0.625rem;
+  border: 1px solid var(--primary);
+  font-size: 1.1rem
+}
+#landing-section .pfp {
+  width: 16rem;
+  height: 16rem;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to right, #58A6FF, #993592); 
+}
+#landing-section .pfp img {
+  width: calc(100% - 10px);
+  height: calc(100% - 10px);
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: var(--background-1);
+}
+#landing-section .pfp::before {
+  background: inherit;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  animation: rotateGradient 4s linear infinite; 
+}
+@keyframes rotateGradient {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+#aboutMe-section {
+  height: auto;
+  background-color: var(--background-1);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 8rem 13.2rem;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2rem;
+}
+#aboutMe-section .title {
+  color: var(--secondary);
+  font-size: 3rem;
+  font-weight: 700;
+}
+#aboutMe-section .radio-input input {
+  display: none;
+}
+#aboutMe-section .radio-input {
+  --container_width: 300px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: 1.5rem;
+  background-color: var(--background-2);
+  color: var(--grey);
+  width: var(--container_width);
+  overflow: hidden;
+  border: .2rem solid var(--background-2);
+}
+#aboutMe-section .radio-input label {
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  font-weight: 600;
+  letter-spacing: -1px;
+  font-size: 0.9rem;
+}
+#aboutMe-section .selection {
+  display: none;
+  position: absolute;
+  height: 100%;
+  width: calc(var(--container_width) / 2);
+  border-radius: 15%;
+  z-index: 0;
+  left: 0;
+  top: 0;
+  transition: 0.15s ease;
+}
+#aboutMe-section .radio-input label:has(input:checked) {
+  color: var(--secondary);
+}
+#aboutMe-section .radio-input label:has(input:checked) ~ .selection {
+  background-color: var(--background-1);
+  display: inline-block;
+}
+#aboutMe-section .radio-input label:nth-child(1):has(input:checked) ~ .selection {
+  transform: translateX(calc(var(--container_width) * 0 / 2));
+}
+#aboutMe-section .radio-input label:nth-child(2):has(input:checked) ~ .selection {
+  transform: translateX(calc(var(--container_width) * 1 / 2));
+}
+#aboutMe-section .content{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+#aboutMe-section .content .code{
+  width: 45%;
+  background-color: linear-gradient(to right, #58A6FF, #993592);
+}
+#aboutMe-section .content .info{
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+#aboutMe-section .content .info .skills{
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+#aboutMe-section .content .info .skills .item{
+  font-size: 0.9rem;
+  padding: .3rem .5rem;
+  border: .1rem solid;
+  border-radius: 10%;
+  background-color: var(--background-2);
+}
+#aboutMe-section .content .info .levels{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+#aboutMe-section .content .info .levels h2{
+  color: var(--secondary);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+#aboutMe-section .content .info .levels .item{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+
+  color: var(--grey);
+  font-size: 1rem;
+  font-weight: 500;
+}
+#aboutMe-section .content .info .levels .item .meter{
+  height: .5rem;
+  width: 100%;
+  background-color: var(--background-2);
+  position: relative;
+  overflow: hidden;
+  border-radius: 15%;
+}
+#aboutMe-section .content .info .levels .item .meter span{
+  display: block;
+  height: 100%;
+}
+#aboutMe-section .content .info .levels .item .meter .progress{
+  animation: progressBar 3s ease-in-out;
+  animation-fill-mode:both; 
+}
+@keyframes progressBar {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+#aboutMe-section .content .info p{
+  color: var(--grey);
+  font-size: 1.2rem;
+}
+
+
+#projects-section{
+  height: auto;
+  background-color: var(--background-2);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 8rem 13.2rem;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+}
+#projects-section .title {
+  color: var(--secondary);
+  font-size: 3rem;
+  font-weight: 700;
+}
+#projects-section .desc {
+  color: var(--grey);
+  font-size: 1.2rem;
+}
+#projects-section .radio-input input {
+  display: none;
+}
+#projects-section .radio-input {
+  --container_width: 300px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: 1.5rem;
+  background-color: var(--background-1);
+  color: var(--grey);
+  width: var(--container_width);
+  overflow: hidden;
+  border: .2rem solid var(--background-1);
+}
+#projects-section .radio-input label {
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  font-weight: 600;
+  letter-spacing: -1px;
+  font-size: 0.9rem;
+}
+#projects-section .selection {
+  display: none;
+  position: absolute;
+  height: 100%;
+  width: calc(var(--container_width) / 2);
+  border-radius: 15%;
+  z-index: 0;
+  left: 0;
+  top: 0;
+  transition: 0.15s ease;
+}
+#projects-section .radio-input label:has(input:checked) {
+  color: var(--secondary);
+}
+#projects-section .radio-input label:has(input:checked) ~ .selection {
+  background-color: var(--background-2);
+  display: inline-block;
+}
+#projects-section .radio-input label:nth-child(1):has(input:checked) ~ .selection {
+  transform: translateX(calc(var(--container_width) * 0 / 2));
+}
+#projects-section .radio-input label:nth-child(2):has(input:checked) ~ .selection {
+  transform: translateX(calc(var(--container_width) * 1 / 2));
+}
+#projects-section .content{
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  align-items: center;
+  gap: 5rem;
+}
+.project-card{
+  width: 30rem;
+  height: 28rem;
+  background-color: var(--background-1);
+  border-radius: 1rem;
+  border: var(--grey) solid 0.1rem;
+  display: flex;
+  flex-direction: column;
+}
+.project-card .thumbnail{
+  width: 100%;
+  height: 50%;
+  border-radius: 1rem;
+  color: var(--secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--secondary);
+  font-size: ;
+}
+.project-card .details{
+  width: 100%;
+  height: 55%;
+}
