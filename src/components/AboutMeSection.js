@@ -5,12 +5,12 @@ import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/prism';
 const def_Position = {
     name: 'developer',
     skills: [
-        {skill: 'JavaScript', exp_lvl: 80, color: '#58A6FF'},
-        {skill: 'React', exp_lvl: 70, color: '#60A5FA'},
-        {skill: 'Node.js', exp_lvl: 60, color: '#22C55E'},
-        {skill: 'MongoDB', exp_lvl: 70, color: '#16A34A'},
-        {skill: 'HTML5/CSS3', exp_lvl: 100, color: '#CD581A'},
-        {skill: 'Python', exp_lvl: 80, color: '#3B82F6'},
+        {skill: 'JavaScript', exp_lvl: 80},
+        {skill: 'React', exp_lvl: 70},
+        {skill: 'Node.js', exp_lvl: 60},
+        {skill: 'MongoDB', exp_lvl: 70},
+        {skill: 'HTML5/CSS3', exp_lvl: 100},
+        {skill: 'Python', exp_lvl: 80},
     ],
     desc: `
 // About me as a developer
@@ -40,11 +40,11 @@ function reducer(state, action) {
             return {
                 name: 'designer',
                 skills: [
-                    {skill: 'Illustrator', exp_lvl: 80, color: '#CD581A'},
-                    {skill: 'UI Design', exp_lvl: 70, color: '#3B82F6'},
-                    {skill: 'Figma', exp_lvl: 60, color: '#16A34A'},
-                    {skill: 'Wireframing', exp_lvl: 70, color: '#22C55E'},
-                    {skill: 'Photoshop', exp_lvl: 20, color: '#60A5FA'},
+                    {skill: 'Adobe Illustrator', exp_lvl: 80},
+                    {skill: 'UI Design', exp_lvl: 70},
+                    {skill: 'Figma', exp_lvl: 60},
+                    {skill: 'Wireframing', exp_lvl: 70},
+                    {skill: 'Photoshop', exp_lvl: 20},
                 ],
                 desc: `
 // About me as a designer
@@ -67,12 +67,17 @@ const Designer = {
     }
 }
 
-function AboutMeSection(){
+function AboutMeSection({ skillColors }){
 
     const [position, dispatch] = React.useReducer(reducer, def_Position);
 
     const handleChange = (e) => {
         dispatch({ type: e.target.value });
+    }
+
+    const colorFinder = (skillName) =>{
+        const obj = skillColors.find(({ skill }) => skill === skillName)
+        return obj.color;
     }
 
     return(
@@ -109,7 +114,7 @@ function AboutMeSection(){
                 <div className="info">
                     <div className="skills">
                         {position.skills.map((skill) => (
-                            <div className="item" style={{color: skill.color, borderColor: skill.color}}>
+                            <div className="item" style={{color: colorFinder(skill.skill), borderColor: colorFinder(skill.skill)}}>
                                 {skill.skill}
                             </div>  
                         ))}
@@ -121,7 +126,7 @@ function AboutMeSection(){
                             <div className="item">
                                 <h4>{skill.skill}</h4>
                                 <div class="meter">
-                                    <span style={{width:`${skill.exp_lvl}%`}}><span class="progress" style={{background: skill.color}}></span></span>
+                                    <span style={{width:`${skill.exp_lvl}%`}}><span class="progress" style={{background: colorFinder(skill.skill)}}></span></span>
                                 </div>
                             </div>
                         ))}

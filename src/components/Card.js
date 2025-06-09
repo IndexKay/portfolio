@@ -1,10 +1,21 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-function Card({ title, description, icon, tags, color }){
+
+function Card({ title, description, icon, tags, colors }){
+
+    const colorFinder = (skillName) =>{
+
+        const obj = colors.find(({ skill }) => skill === skillName)
+        if(obj === undefined){
+            return('#000');
+        }else{
+            return obj.color;
+        }
+    }
 
     return(
         <div className="project-card">
-            <div className="thumbnail" style={{background: color}}>
+            <div className="thumbnail">
                 <FontAwesomeIcon icon={icon}/>
             </div>
             <div className="details">
@@ -12,12 +23,12 @@ function Card({ title, description, icon, tags, color }){
                 <p className="project-desc">{description}</p>
                 <div className="tags">
                     {tags.map((tag) => (
-                        <p>{tag}</p>
+                        <p className="item" style={{color: colorFinder(tag)}}>{tag}</p>
                     ))}
                 </div>
                 <div className="links">
-                    <a>View Project</a>
-                    <a>Github</a>
+                    <a href="">View Project</a>
+                    <a href="">Github</a>
                 </div>
             </div>
         </div>

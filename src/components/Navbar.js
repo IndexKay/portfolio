@@ -1,5 +1,4 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import react from "react";
 import {
   faGithub,
   faLinkedin,
