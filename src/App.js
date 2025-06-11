@@ -1,9 +1,13 @@
 import './assets/css/App.css';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import LandingSection from './components/LandingSection';
 import AboutMeSection from './components/AboutMeSection';
 import ProjectSection from './components/ProjectsSection';
 import ContactMeSection from './components/ContactMeSection';
+import { AlertProvider } from "./context/alertContext";
+import Alert from "./components/Alert";
+import { ChakraProvider } from "@chakra-ui/react";
 
 const skillColors = [
   {skill: 'JavaScript', color: '#58A6FF'},
@@ -22,20 +26,30 @@ const skillColors = [
   {skill: 'Postgresql', color: '#2c9cf8'},
   {skill: 'Adobe Illustrator', color: '#CD581A'},
   {skill: 'UI Design', color: '#3B82F6'},
+  {skill: 'UX Design', color: '#3A9231'},
   {skill: 'Figma', color: '#16A34A'},
   {skill: 'Wireframing', color: '#22C55E'},
   {skill: 'Photoshop', color: '#60A5FA'},
+  {skill: 'Prototyping', color: '#6034FA'},
+  {skill: 'Web Design', color: '#CD581A'},
 ]
 
 function App() {
   return (
-    <main>
-      <Navbar/>
-      <LandingSection/>
-      <AboutMeSection skillColors={skillColors}/>
-      <ProjectSection skillColors={skillColors}/>
-      <ContactMeSection/>
-    </main>
+    <ChakraProvider>
+      <AlertProvider>
+        <main>
+          <Navbar/>
+          <LandingSection/>
+          <AboutMeSection skillColors={skillColors}/>
+          <ProjectSection skillColors={skillColors}/>
+          <ContactMeSection/>
+          <Alert/>
+          <Footer/>
+        </main>
+      </AlertProvider>
+    </ChakraProvider>
+    
   );
 }
 

@@ -12,6 +12,17 @@ const bio = "My name is Kavin Lajara, I build exceptional digital experiences th
 
 function LandingSection() {
 
+    const handleClick = (anchor) => {
+      const id = `${anchor}-section`;
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    };
+
     return(
         <section id="landing-section">
             <div className="content">
@@ -30,8 +41,8 @@ function LandingSection() {
                 
                 <p className="bio">{bio}</p>
                 <div className="btn-container">
-                    <button className="btn1">Get in touch</button>
-                    <button className="btn2">View my work</button>
+                    <button className="btn1" onClick={() => handleClick('contact')}>Get in touch</button>
+                    <button className="btn2" onClick={() => handleClick('projects')}>View my work</button>
                 </div>
             </div>
         

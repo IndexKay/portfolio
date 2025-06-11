@@ -1,7 +1,6 @@
 import React from "react";
 import Card from "./Card.js";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFlask, faCodeBranch, faBarsProgress, faRobot } from "@fortawesome/free-solid-svg-icons";
+import { faFlask, faCodeBranch, faBarsProgress, faRobot, faMobileScreenButton, faObjectGroup } from "@fortawesome/free-solid-svg-icons";
 
 const def_projects = {
   name: 'development',
@@ -52,14 +51,14 @@ function reducer(state, action) {
                     title: "Mobile App UI Design",
                     description:
                       "A clean and modern UI design for a fitness tracking mobile application.",
-                    icon: faFlask,
+                    icon: faMobileScreenButton,
                     tags: [ 'Figma', 'UI Design', 'Prototyping'],
                   },
                   {
                     title: "Website Redesign",
                     description:
                       "Complete redesign of an e-learning platform with improved UX and modern visual design.",
-                    icon: faCodeBranch,
+                    icon: faObjectGroup,
                     tags: ['Web Design', 'UX Design', 'Figma'],
                   },
                 ]

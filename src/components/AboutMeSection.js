@@ -71,6 +71,33 @@ function AboutMeSection({ skillColors }){
 
     const [position, dispatch] = React.useReducer(reducer, def_Position);
 
+    const codeTheme = {
+        ...nightOwl,
+        "pre[class*=\"language-\"]": {
+          "color": "white",
+          "fontFamily": "Consolas, Monaco, \"Andale Mono\", \"Ubuntu Mono\", monospace",
+          "textAlign": "left",
+          "whiteSpace": "pre",
+          "wordSpacing": "normal",
+          "wordBreak": "normal",
+          "wordWrap": "normal",
+          "lineHeight": "1.5",
+          "fontSize": "1em",
+          "MozTabSize": "4",
+          "OTabSize": "4",
+          "tabSize": "4",
+          "WebkitHyphens": "none",
+          "MozHyphens": "none",
+          "msHyphens": "none",
+          "hyphens": "none",
+          "padding": "1em",
+          "margin": "0.5em 0",
+          "overflow": "auto",
+          "background": "linear-gradient(to right, #161B21, #202a36)"
+        }
+    
+      };
+
     const handleChange = (e) => {
         dispatch({ type: e.target.value });
     }
@@ -107,7 +134,7 @@ function AboutMeSection({ skillColors }){
             </div>
 
             <div className="content">
-                <SyntaxHighlighter language="javascript" style={nightOwl} className='code'>
+                <SyntaxHighlighter language="javascript" style={codeTheme} className='code'>
                     {position.desc}
                 </SyntaxHighlighter>
 

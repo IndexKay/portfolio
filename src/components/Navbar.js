@@ -27,7 +27,7 @@ const socials = [
 
 function Navbar() {
 
-    const handleClick = (anchor) => () => {
+    const handleClick = (anchor) => {
       const id = `${anchor}-section`;
       const element = document.getElementById(id);
       if (element) {
@@ -43,10 +43,10 @@ function Navbar() {
             <img src="/logo.svg" alt="Kavin Lajara logo" className="logo"/>
 
             <div className="links">
-              <a href='/#home' onClick={handleClick}>Home</a>
-              <a href='/#about' onClick={handleClick}>About</a>
-              <a href='/#projects' onClick={handleClick}>Projects</a>
-              <a href='/#contact' onClick={handleClick}>Contact</a>
+              <a href='#landing' onClick={() => handleClick('landing')}>Home</a>
+              <a href='#aboutMe' onClick={() => handleClick('aboutMe')}>About</a>
+              <a href='#projects' onClick={() => handleClick('projects')}>Projects</a>
+              <a href='#contact' onClick={() => handleClick('contact')}>Contact</a>
             </div>
 
             <div className="socials">
